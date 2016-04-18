@@ -27,6 +27,7 @@
 class MapViewer
 {
 public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   MapViewer(GLWindow2 &glw);
   void DrawMap(Eigen::Matrix4f se3CamFromWorld, kinect *SourceK);
   std::string GetMessageForUser();
@@ -39,11 +40,12 @@ protected:
   void DrawCamera(Eigen::Matrix4f se3, bool bSmall=false);
   void DrawCone(int NbPoints,float size);
   void DrawCloud(Eigen::Matrix4f se3CfromW, kinect *SourceK);
+  void DrawCloudPointsInGrid(Eigen::Matrix4f se3CfromW, kinect *SourceK);
 
   void SetupFrustum();
   void SetupModelView(Eigen::Matrix4f se3WorldFromCurrent);
 
-  
+
   Eigen::Vector3f mv3MassCenter;
   Eigen::Matrix4f mse3ViewerFromWorld;
   Eigen::Matrix4f CovPos;

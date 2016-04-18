@@ -1,10 +1,9 @@
-
 #include "include/glWindow2.h"
+
 #include <stdlib.h>
 #include <iostream>
-
-
 using namespace std;
+
 GLWindow2 gGLWin(Eigen::Vector2f(640,480));
 
 
@@ -142,7 +141,7 @@ void GLWindow2::GLkeyboardHandler( unsigned char key, int x, int y )
         break;
 
     case 32:
-        mbUserPressedSpacebar = true;
+        mbUserPressedSpacebar = !mbUserPressedSpacebar;
         break;
 
     case 'o':
@@ -213,7 +212,7 @@ void GLWindow2::SetupViewport()
 std::pair<Eigen::VectorXf, Eigen::VectorXf> GLWindow2::GetMousePoseUpdate()
 {
     pair<Eigen::VectorXf, Eigen::VectorXf > result = make_pair(mvLeftPoseUpdate, mvMCPoseUpdate);
-    mvLeftPoseUpdate = Eigen::VectorXf::Zero(6);
+//    mvLeftPoseUpdate = Eigen::VectorXf::Zero(6);
     mvMCPoseUpdate = Eigen::VectorXf::Zero(6);
     return result;
 }

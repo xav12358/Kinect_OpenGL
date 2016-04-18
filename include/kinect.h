@@ -38,14 +38,21 @@ public:
     float k1_d,k2_d,p1_d,p2_d,k3_d;
 
 
+    Eigen::Matrix3f Rotation;
+    Eigen::Vector3f Translation;
+    Eigen::Matrix4f se3DepthCamToRGBCam;
     // Position of the Plane Points of the depth camera
     Eigen::Vector2f * ptDepthPlanePointsMap;
+    Eigen::Vector2f * ptRGBPlanePointsMap;
 
     Eigen::Vector3f * pt3DPoints_DepthCamera;
     Eigen::Vector3f * pt3DPoints_RGBCamera;
 
-    uint8_t *u8_RGBImgage;
-    u_int16_t *u16_DImgage;
+    uint8_t     *u8_RGBImgage;
+    u_int16_t   *u16_DImgage;
+    int16_t     *s16_DImgage;
+
+    float min,max;
 
 public:
     kinect();

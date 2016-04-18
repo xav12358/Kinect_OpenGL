@@ -13,7 +13,7 @@ int main( int argc, char **argv )
 
 
     System *S = new System(gGLWin);
-//    S->Run();
+    S->Run();
 
 
     return 0;
